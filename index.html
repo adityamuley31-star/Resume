@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Muley — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #faf9f6;
+    --white:    #ffffff;
+    --text:     #1a1a1a;
+    --sub:      #444444;
+    --muted:    #888888;
+    --border:   #e8e4dc;
+    --coral:    #ff6b52;
+    --coral-bg: #fff3f0;
+    --sky:      #3d9be9;
+    --sky-bg:   #eff6ff;
+    --sage:     #4caf82;
+    --sage-bg:  #f0faf5;
+    --amber:    #f0a500;
+    --amber-bg: #fffbf0;
+    --violet:   #8b6fe8;
+    --violet-bg:#f5f2ff;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade { opacity: 0; animation: rise 0.5s ease forwards; }
+  .d1{animation-delay:0.05s} .d2{animation-delay:0.15s}
+  .d3{animation-delay:0.25s} .d4{animation-delay:0.35s}
+  .d5{animation-delay:0.45s} .d6{animation-delay:0.55s}
+
+  @keyframes rise {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 32px; }
+
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .desg-tag {
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--coral);
+    background: var(--coral-bg);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* ── CONTACT PILLS ── */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px 6px 10px;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+    white-space: nowrap;
+  }
+
+  .cpill svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .cpill:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .cpill.coral:hover  { border-color: var(--coral);  color: var(--coral); }
+  .cpill.sky:hover    { border-color: var(--sky);    color: var(--sky); }
+  .cpill.violet:hover { border-color: var(--violet); color: var(--violet); }
+  .cpill.sage:hover   { border-color: var(--sage);   color: var(--sage); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── SECTION HEADING ── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .sec-head .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sec-head h2 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .sec-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── SUMMARY ── */
+  .summary {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 13.5px;
+    color: var(--sub);
+    line-height: 1.75;
+  }
+
+  .summary strong { color: var(--text); font-weight: 600; }
+
+  .skills-line {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--sub);
+    line-height: 1.7;
+  }
+
+  .skills-line strong { color: var(--text); font-weight: 600; }
+
+  /* ── JOB CARD ── */
+  .job {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .job-left {}
+
+  .job-title {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .job-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .co-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 5px;
+  }
+
+  .job-loc {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .job-period {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .job-about {
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bullets li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--sub);
+    line-height: 1.65;
+  }
+
+  .bullets li .bull {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--muted);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .bullets li strong { font-weight: 600; color: var(--text); }
+
+  /* ── SKILLS GRID ── */
+  .skills-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skill-row {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .sk-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    min-width: 56px;
+    padding-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .sk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sk-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .sk-tag.tool {
+    background: var(--sage-bg);
+    border-color: #c4e8d4;
+    color: #2d7a52;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .edu-degree {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--sub);
+  }
+
+  .edu-period {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ── CERTS ── */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--sub);
+    line-height: 1.6;
+  }
+
+  .cert-item svg {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cert-item strong { color: var(--text); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-note { font-size: 12px; color: var(--muted); }
+
+  .footer-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--violet);
+    background: var(--violet-bg);
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 500px) {
+    .skill-row { flex-direction: column; gap: 8px; }
+    .job-header { flex-direction: column; gap: 6px; }
+    .edu-card { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header fade d1">
+    <h1>Aditya Muley</h1>
+    <div><span class="desg-tag">Content &amp; Digital Marketing Manager</span></div>
+    <div class="contact-row">
+
+      <!-- Phone -->
+      <a href="tel:+919009359453" class="cpill coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        +91-9009359453
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:adityamuley31@gmail.com" class="cpill sky">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        adityamuley31@gmail.com
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/adityamuley-adm" target="_blank" class="cpill violet">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+
+      <!-- Portfolio -->
+      <a href="https://adityamuley.github.io/portfolio" target="_blank" class="cpill sage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        Work portfolio
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="fade d2">
+    <div class="sec-head">
+      <div class="dot" style="background:var(--coral)"></div>
+      <h2>Summary</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="summary">
+      B2B SaaS content and digital marketing professional with <strong>3+ years of experience</strong> driving organic growth, SEO performance, and brand visibility for <strong>AI, fintech, and retail tech</strong> companies.
+      <div class="skills-line">
+        <strong>Skills:</strong> Content strategy and operations &nbsp;·&nbsp; SEO and organic growth &nbsp;·&nbsp; Brand positioning &nbsp;·&nbsp; Social media engagement &nbsp;·&nbsp; Thought leadership &nbsp;·&nbsp; Demand generation support &nbsp;·&nbsp; Stakeholder and vendor management
+      </div>
+    </div>
+  </div>
+
+  <div class="divider fade d2"></div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="fade d3">
+    <div class="sec-head">
+      <div class="dot" style="background:var(--sky)"></div>
+      <h2>Work experience</h2>
+      <div class="rule"></div>
+    </div>
+
+    <!-- Prodigal -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-left">
+          <div class="job-title">Content Ecosystem Manager</div>
+          <div class="job-meta">
+            <span class="co-tag" style="background:var(--coral-bg);color:var(--coral)">Prodigal</span>
+            <span class="job-loc">Mumbai</span>
+          </div>
+        </div>
+        <div class="job-period">May 2025 — present</div>
+      </div>
+      <div class="job-about">AI agents for the loan servicing and debt collection industry, serving 100+ customers</div>
+      <ul class="bullets">
+        <li><span class="bull"></span><span>Own and execute content marketing strategy across social media, website, and email channels, supporting Tech, Customer Success, Sales, and executive leadership.</span></li>
+        <li><span class="bull"></span><span>Developed <strong>10+ SEO-driven blogs</strong> on AI agents and the collections ecosystem, achieving first-page Google rankings and driving sustained organic traffic growth.</span></li>
+        <li><span class="bull"></span><span>Produced <strong>2 in-depth whitepapers</strong> distributed via a leading industry publication, generating <strong>50+ marketing-qualified leads</strong> within two months.</span></li>
+        <li><span class="bull"></span><span>Optimized email messaging for candidates, prospects, customers, and investors, delivering <strong>29%+ open rates</strong> and <strong>3.1%+ click-through rates.</strong></span></li>
+        <li><span class="bull"></span><span>Launched and managed <strong>5 LinkedIn newsletters</strong> focused on industry trends, generating <strong>1,800+ organic impressions</strong> and <strong>700+ unique views.</strong></span></li>
+        <li><span class="bull"></span><span>Increased content publishing turnaround by <strong>~75%</strong> and reduced internal dependency by acting as the primary point of contact for external vendors, improving core work efficiency by <strong>~30%.</strong></span></li>
+      </ul>
+    </div>
+
+    <!-- HotWax -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-left">
+          <div class="job-title">Digital Marketing Associate</div>
+          <div class="job-meta">
+            <span class="co-tag" style="background:var(--sky-bg);color:var(--sky)">HotWax Commerce</span>
+            <span class="job-loc">Indore</span>
+          </div>
+        </div>
+        <div class="job-period">Dec 2022 — Apr 2025</div>
+      </div>
+      <div class="job-about">Order Management System (OMS) for mid-market and enterprise retail brands</div>
+      <ul class="bullets">
+        <li><span class="bull"></span><span>Led cross-functional initiatives spanning social media, non-sales outreach messaging, and website content aligned with product and go-to-market goals.</span></li>
+        <li><span class="bull"></span><span>Managed multi-platform content distribution highlighting OMS capabilities, contributing to <strong>70% growth in LinkedIn followers.</strong></span></li>
+        <li><span class="bull"></span><span>Managed end-to-end execution of trade shows and conferences (NRF, Shoptalk), worked closely with Sales to set prospect meetings, with <strong>2 leads qualifying post-event through BANT.</strong></span></li>
+        <li><span class="bull"></span><span>Implemented SEO strategies resulting in <strong>first-page rankings for 85+ keywords</strong> across high-intent search terms.</span></li>
+        <li><span class="bull"></span><span>Authored <strong>3 data-driven blogs</strong> achieving first-page rankings and <strong>80%+ engagement rates.</strong></span></li>
+        <li><span class="bull"></span><span>Managed CEO personal branding, PR content, and social presence, engaging directly with retail decision-makers and enabling a new sales outreach channel.</span></li>
+        <li><span class="bull"></span><span>Developed <strong>8+ thought leadership articles</strong> on retail and OMS trends, generating <strong>1,500+ organic impressions.</strong></span></li>
+        <li><span class="bull"></span><span>Increased content production velocity by <strong>50%</strong> through strategic use of AI tools, improving turnaround time across blogs, social media, and website content.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider fade d3"></div>
+
+  <!-- SKILLS & TOOLS -->
+  <div class="fade d4">
+    <div class="sec-head">
+      <div class="dot" style="background:var(--sage)"></div>
+      <h2>Skills &amp; tools</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-row">
+        <span class="sk-label">Skills</span>
+        <div class="sk-tags">
+          <span class="sk-tag">Content strategy</span>
+          <span class="sk-tag">SEO &amp; organic growth</span>
+          <span class="sk-tag">Brand positioning</span>
+          <span class="sk-tag">Social media</span>
+          <span class="sk-tag">Thought leadership</span>
+          <span class="sk-tag">Demand generation</span>
+          <span class="sk-tag">Stakeholder management</span>
+          <span class="sk-tag">Vendor management</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-label">Tools</span>
+        <div class="sk-tags">
+          <span class="sk-tag tool">Google Analytics</span>
+          <span class="sk-tag tool">HubSpot</span>
+          <span class="sk-tag tool">Semrush</span>
+          <span class="sk-tag tool">Google Search Console</span>
+          <span class="sk-tag tool">Claude</span>
+          <span class="sk-tag tool">Perplexity</span>
+          <span class="sk-tag tool">ChatGPT</span>
+          <span class="sk-tag tool">Figma</span>
+          <span class="sk-tag tool">Canva</span>
+          <span class="sk-tag tool">Asana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider fade d4"></div>
+
+  <!-- EDUCATION -->
+  <div class="fade d5">
+    <div class="sec-head">
+      <div class="dot" style="background:var(--amber)"></div>
+      <h2>Education</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Master of Business Administration, Marketing</div>
+        <div class="edu-school">Shri Vaishnav Institute of Management &nbsp;·&nbsp; Indore, India</div>
+      </div>
+      <div class="edu-period">Sept 2020 — Oct 2022</div>
+    </div>
+  </div>
+
+  <div class="divider fade d5"></div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="fade d6">
+    <div class="sec-head">
+      <div class="dot" style="background:var(--violet)"></div>
+      <h2>Certifications &amp; achievements</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="6"/>
+          <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+        </svg>
+        <span>HubSpot Academy certified in <strong>Social Media Marketing, SEO,</strong> and <strong>Inbound Marketing.</strong></span>
+      </div>
+      <div class="cert-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 010-5H6"/>
+          <path d="M18 9h1.5a2.5 2.5 0 000-5H18"/>
+          <path d="M4 22h16"/>
+          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+          <path d="M18 2H6v7a6 6 0 0012 0V2z"/>
+        </svg>
+        <span>Market Research Project on <strong>"IPL as a marketing tool for brands"</strong> — selected among the top 20 projects of the final-year batch.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer fade d6">
+    <span class="footer-note">Built with Claude Code</span>
+    <span class="footer-tag">✦ vibe coded by Aditya</span>
+  </div>
+
+</div>
+</body>
+</html>
